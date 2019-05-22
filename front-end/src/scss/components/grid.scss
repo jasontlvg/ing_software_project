@@ -1,0 +1,232 @@
+body{
+    position: relative;
+}
+
+header{
+    width: 100%;
+    // height: 8vh;
+    text-align: center;
+    padding: 0.6em;
+    margin: 0;
+    background:#424242  ;
+    // background: #037740;
+    margin-bottom: 1.5em;
+    // box-shadow: 0px 3px 3px -2px rgba(0,0,0,0.75);
+
+    h2{
+        margin: 0;
+        padding: 0;
+        font-size: 1.5em;
+        color: white;
+    }
+
+    background: linear-gradient(-45deg, #EE7752, #E73C7E, #d52352, #ff000c);
+    
+	background-size: 400% 400%;
+    animation: Gradient 15s ease infinite;
+    // transition: background 2s;
+}
+
+header.connected{
+    background: linear-gradient(-45deg, #298d2d, #77cf11, #25b912, #68bb0a);
+    // transition: background 2s;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+main{
+    color: white;
+    width: 100%;
+    // height: 92vh;
+    // background: yellowgreen;
+    // Flexbox
+    display: flex;
+    // align-items: center;
+    .card{
+        width: 870px;
+        margin: 0 auto;
+        // background: skyblue;
+        border-radius: 11px;
+        box-shadow: 0px 0px 46px -18px rgba(0,0,0,0.75);
+        overflow: hidden;
+        // padding: 1em;
+        &__main{
+            width: 100%;
+            height: 280px;
+            background: crimson;
+            position: relative;
+            z-index: 0;
+            display: flex;
+            overflow: hidden;
+            &__picture{
+                width: 100%;
+                top: 0;
+                position: absolute;
+                z-index: 1;
+            }
+
+            &__content{
+                width: 100%;
+                position: relative;
+                z-index: 100;
+                // background: red;
+                display: flex;
+
+                &__module{
+                    width: 50%;
+
+                    &--left{
+                        // background: tomato;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        
+                        &__value{
+                            // margin-top: 1px;
+                            font-size: 6em;
+                            color: white;
+                            // background: red;
+                        }
+
+                        &__state{
+                            // margin-top: 1px;
+                            color: white;
+                            font-size: 2em;
+                            // background: blue;
+                        }
+
+                        p,h2{
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        &__data{ // XLS
+                            display: flex;
+                            margin-top: 1.5em;
+                            // width: 100%;
+
+                            &__module{
+                                text-align: center;
+                                // color: #ffff;
+                                &:nth-child(odd){
+                                    // background: yellowgreen;
+                                    border-right: 1px solid rgba(0,0,0,0.4);
+                                }
+                                width: 10em;
+                            }
+
+                        }
+                    }
+
+                    &--right{  // Desconocido
+                        // background: red;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        
+                        h2{
+                            padding: 0;
+                            margin: 0;
+                            color: white;
+                            // font-weight: bold;
+                        }
+                    }
+
+                }
+            }
+        }
+        &__info{
+            width: 100%;
+            height: 250px;
+            // background-color: rebeccapurple;
+            display: flex;
+            &__module{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1 1 auto;
+                .fas{
+                    font-size: 4em;
+                    color: white;
+                }
+                // &:nth-child(odd){
+                //     background: skyblue;
+                // }
+                
+                &__title, &__value{
+                    margin: 0;
+                    color: white;
+                }
+                &__title{
+                    margin-top: 0.5em;
+                    font-weight: bold;
+                }
+                
+
+                &--humidity{
+                    background: #2e7d32;
+                    background: linear-gradient(to right, #9d50bb, #6e48aa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+                }
+
+                &--smoke{
+                    background: #424242;
+                    // transition: background-image 0.5s;
+                    background-image: linear-gradient(to right, #f857a6, #ff5858); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                    &.humo{
+                        // transition: background-image 0.5s;
+                        background-image: linear-gradient(to right, #f85032, #e73827); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                        
+                    }
+                }
+
+                &--light{
+                    background: #ff9100;
+                    background: linear-gradient(to right, #f46b45, #eea849);
+                }
+
+                &--rain{
+                    background: #00b0ff;
+                    background: linear-gradient(to right, #005c97, #363795);
+                }
+
+
+            }
+
+        }
+    }
+}
+
+// Control de z-index para que las nubes no estorben
+.card__main__content__module--left__data, .card__info, .card__main__content__module--left__state{
+    position: relative;
+    z-index: 3;
+}
+
+
+// Nuevo
+.card__main__rain{
+    // display: flex;
+    // flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    // background: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+

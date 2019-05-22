@@ -1,0 +1,84 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.1.4/css/uikit.min.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>Document</title>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <header id="header" :class="{connected: arduinoConnected}">
+      <h2>{{currentDate()}}</h2>
+    </header>
+    <main>
+      <div class="card" id="card">
+        <div class="card__main"><img class="card__main__picture" src="img/valle.jpg">
+          <div class="card__main__clouds"><div class="x1">
+<div class="cloud" :class="{gray: rain}"></div>
+</div>
+<div class="x2">
+<div class="cloud" :class="{gray: rain}"></div>
+</div>
+<div class="x3">
+<div class="cloud" :class="{gray: rain}"></div>
+</div>
+<div class="x4">
+<div class="cloud cloud4"></div>
+</div>
+          </div>
+          <div class="card__main__rain" v-if="rain"><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i><i class="rain"></i>
+          </div>
+          <div class="card__main__content">
+            <div class="card__main__content__module card__main__content__module--left">
+              <h2 class="card__main__content__module--left__value">{{temperature}}°</h2>
+              <p class="card__main__content__module--left__state">Centigrados</p>
+              <div class="card__main__content__module--left__data"><!-- XLS -->
+                <div class="card__main__content__module--left__data__module card__main__content__module--left__data__module--left">
+                  <p>Humedad</p>
+                  <p>{{humidity}}%</p>
+                </div>
+                <div class="card__main__content__module--left__data__module card__main__content__module--left__data__module--right">
+                  <p>U.A.B.C</p>
+                  <p>ECITEC</p>
+                </div>
+              </div>
+            </div>
+            <div class="card__main__content__module card__main__content__module--right"><div class="sunny" v-show= "sunnyIcon"></div> <!--A-->
+<div class="partly_cloudy" v-show= "partlyCloudyIcon"> <!--B-->
+<div class="partly_cloudy__sun"></div>
+<div class="partly_cloudy__cloud"></div>
+</div>
+<div class="thundery" v-show= "rain"> <!--C-->
+<div class="thundery__cloud"></div>
+<div class="thundery__rain"></div>
+</div>
+              <h2>{{statusClima}}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card__info">
+          <div class="card__info__module card__info__module--humidity"><i class="fas fa-smog"></i>
+            <h3 class="card__info__module__title card__info__module--humidity__title">Humedad</h3>
+            <h3 class="card__info__module__value card__info__module--humidity__value">{{humidity}}</h3>
+          </div>
+          <div class="card__info__module card__info__module--smoke" :class="{humo: smoke}"><i class="fas fa-wind"></i>
+            <h3 class="card__info__module__title card__info__module--smoke__title">Humo</h3>
+            <h3 class="card__info__module__value card__info__module--smoke__value" v-if="smoke">Hay Humo</h3>
+            <h3 class="card__info__module__value card__info__module--smoke__value" v-else>Sin Humo</h3>
+          </div>
+          <div class="card__info__module card__info__module--light"><i class="fas fa-sun"></i>
+            <h3 class="card__info__module__title card__info__module--light__title">Luz</h3>
+            <h3 class="card__info__module__value card__info__module--light__value">{{light}}</h3>
+          </div>
+          <div class="card__info__module card__info__module--rain"><i class="fas fa-tint"></i>
+            <h3 class="card__info__module__title card__info__module--rain__title">Lluvia</h3>
+            <h3 class="card__info__module__value card__info__module--rain__value" v-if="rain">Lloviendo  </h3>
+            <h3 class="card__info__module__value card__info__module--rain__value" v-else>Sin Lluvia</h3>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
